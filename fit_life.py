@@ -5,7 +5,7 @@ MILLILITERS_IN_LITER = 1000
 
 print("Вас приветствует бот FitLife. Давай знакомиться!")
 # Ввод информации о человеке
-user_name = input('Как Вас зовут?: ')
+user_name = input('Как Вас зовут?: ').title()
 # Ввод информации для расчета
 
 while True:
@@ -14,19 +14,20 @@ while True:
         break
     except ValueError:
         print('Ошибка! Пожалуйста, введите число')
-while True:
-    try:
-        user_weight = float(input('Введите ваш вес(например 50.5): '))
-        break
-    except ValueError:
-        print('Ошибка! Введите число или поставьте точку вместо запятой')
-while True:
-    try:
-        user_height = float(input('Введите рост (например 1.65): '))
-        break
-    except ValueError:
-        print('Ошибка! Введите число или поставьте точку вместо запятой')
 
+while True:
+    try:
+        user_weight = float(input('Введите ваш вес: ').replace(',', '.', 1))
+        break
+    except ValueError:
+        print('Ошибка! Введите число')
+
+while True:
+    try:
+        user_height = float(input('Введите рост: ').replace(',', '.', 1))
+        break
+    except ValueError:
+        print('Ошибка! Введите число')
 
 # Расчет ИМТ и кол-ва жидкости
 bmi = user_weight / (user_height ** 2)
